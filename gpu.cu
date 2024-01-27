@@ -4,7 +4,6 @@
 #include <curand_kernel.h>
 #include <algorithm>
 #include <time.h>
-using namespace std;
 
 #define THREADS_PER_BLOCK 32
 #define NUM_BLOCKS 32

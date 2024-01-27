@@ -5,7 +5,6 @@
 #include <random>
 #include <math.h>
 #include <iostream>
-using namespace std;
 
 const int GENOME_LENGTH = 100;
 const int NUMBER_CHROMOSOMES = 1024;
@@ -18,10 +17,10 @@ const float CROSSOVER_RATE = 0.6;
 
 const int NUM_EPOCHS = 1000;
 
-default_random_engine generator;
-uniform_real_distribution<double> geneValueDistribution(GENE_MIN, GENE_MAX);
-uniform_real_distribution<double> mutationFactorDistribution(0.0, 1.0);
-uniform_real_distribution<double> mutationMultiplierDistribution(-0.1, 0.1);
+std::default_random_engine generator;
+std::uniform_real_distribution<double> geneValueDistribution(GENE_MIN, GENE_MAX);
+std::uniform_real_distribution<double> mutationFactorDistribution(0.0, 1.0);
+std::uniform_real_distribution<double> mutationMultiplierDistribution(-0.1, 0.1);
 
 class Chromosome {
 	double genes[GENOME_LENGTH];
@@ -108,7 +107,7 @@ void startIteration(Chromosome population[]) {
 	int num_parents = (1.0 * NUMBER_CHROMOSOMES * (1 - CROSSOVER_RATE));
 	int num_offsprings = NUMBER_CHROMOSOMES - num_parents;
 
-	uniform_int_distribution<int> parentIndexDistribution(0, num_parents);
+	std::uniform_int_distribution<int> parentIndexDistribution(0, num_parents);
 
 	std::sort(population, population + NUMBER_CHROMOSOMES, fitnessComparator);
 
